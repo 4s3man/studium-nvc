@@ -1,18 +1,24 @@
+import 'alpinejs/dist/alpine'
 
-// Add your nice, nice JavaScript here
-// And minify! Time to check out Grunt or Gulp - what else to you have to do this weekend?
+// // import 'jquery/dist/jquery.slim'
+// // import 'popper/index'
+// // import 'bootstrap/dist/js/bootstrap'
 
-$(document).ready( function() {
 
-	// Put some nice JavaScript in here.
-	var $nav_main = $('.nav-main'),
-		$nav_trigger = $('.nav-trigger');
+// // // Add your nice, nice JavaScript here
+// // // And minify! Time to check out Grunt or Gulp - what else to you have to do this weekend?
 
-	$nav_trigger.click( function() {
-		console.log('clicked!');
-		$nav_main.toggleClass('active');
-		$nav_trigger.toggleClass('active');
-		return false;
-	});
+// $(document).ready( function() {
 
-});
+// 	// Put some nice JavaScript in here.
+// 	var $nav_main = $('.nav-main'),
+// 		$nav_trigger = $('.nav-trigger');
+
+// 	$nav_trigger.click( function() {
+// 		console.log('clicked!');
+// 		$nav_main.toggleClass('active');
+// 		$nav_trigger.toggleClass('active');
+// 		return false;
+// 	});
+
+// });

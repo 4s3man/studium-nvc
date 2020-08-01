@@ -25,6 +25,7 @@ class StarterSite extends TimberSite
 		add_action('init', array($this, 'register_taxonomies'));
 		add_action('init', array($this, 'register_menus'));
 		add_action('init', array($this, 'register_widgets'));
+		add_action('init', array($this, 'register_sidebars'));
 		parent::__construct();
 	}
 
@@ -34,6 +35,11 @@ class StarterSite extends TimberSite
 	// The following included files only need to contain the arguments and register_whatever functions. They are applied to WordPress in these functions that are hooked to init above.
 
 	// The point of having separate files is solely to save space in this file. Think of them as a standard PHP include or require.
+
+	function register_sidebars()
+	{
+		require('lib/sidebars.php');
+	}
 
 	function register_post_types()
 	{
@@ -65,6 +71,17 @@ class StarterSite extends TimberSite
 
 		// Our menu occurs on every page, so we add it to the global context.
 		$context['menu'] = new TimberMenu();
+		$context['idea'] = Timber::get_widgets('idea');
+		$context['slider'] = Timber::get_widgets('slider');
+		$context['harmonogram'] = Timber::get_widgets('harmonogram');
+		$context['logistic'] = Timber::get_widgets('logistic');
+		$context['coachs'] = Timber::get_widgets('coachs');
+		$context['singups'] = Timber::get_widgets('singups');
+		$context['contact'] = Timber::get_widgets('contact');
+		$context['newsletter'] = Timber::get_widgets('newsletter');
+		$context['footer1'] = Timber::get_widgets('footer1');
+		$context['footer2'] = Timber::get_widgets('footer2');
+		$context['footer3'] = Timber::get_widgets('footer3');
 
 		// This 'site' context below allows you to access main site information like the site title or description.
 		$context['site'] = $this;

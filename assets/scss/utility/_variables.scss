@@ -43,6 +43,8 @@ $grey:              #6666;
 $white: #fefefe;
 $black: #1F232A;
 
+$backgroundColor: #e9ecef;
+
 
 // STOP!!! READ THIS:
 // Semantic Color Names
@@ -63,8 +65,8 @@ $color-notice-warning:	 $orange;
 
 // Then element-based names are nice too
 $color-link: 		       $color-accent-med;
-$color-link-hover: 		 darken($color-link, 20%);
-$color-link-active: 	 darken($color-link, 60%);
+$color-link-hover: 		   $black;
+$color-link-active: 	   $black;
 
 // The most commonly rotated color:
 $color-rotate-text:   $color-text-light;

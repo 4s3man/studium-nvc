@@ -31,19 +31,17 @@ img {
 
 // You might want to split this into your own partial!
 
-
+.main-bg{
+	background-color: $backgroundColor;
+}
 
 
 // ---
 // Main Site Content
 // ---
-
-.wrapper {
-	max-width: $screen-md; // I'm using a pretty narrow wrapper, you might want this to be $screen-lg depending on your layout.
-	width: 93%;
-	margin: 0 auto;
+body {
+	@extend .main-bg;
 }
-
 
 // ---
 // Media

@@ -1,4 +1,19 @@
-
-{# No specific markup for the home page, yet. Add it here inside a content block! #}
-
 {% extends "page.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+        {{ slider }}
+        <hr>
+        {{ idea }}
+        <hr>
+        {{ logistic }}
+        <hr>
+        {{ harmonogram }}
+        <hr>
+        {{ coachs }}
+        <hr>
+        {{ singups|wpautop }}
+        <hr>
+        {{ contact }}
+	</div>
+{% endblock %}

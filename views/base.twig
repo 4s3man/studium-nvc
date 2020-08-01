@@ -8,16 +8,13 @@
 	<body class="{{body_class}}" data-template="base.twig">
 		<header class="site-header">
 			{% block header %}
-				<div class="wrapper">
-					<h1 class="site-logo" role="banner">
-						<a class="site-logo-link" href="{{site.link}}" rel="home">{{site.name}}</a>
-					</h1>
+				<div class="wrapper md:mt-5">
 					{% include 'partials/nav.twig' %}
 				</div>
 			{% endblock %}
 		</header>
 
-		<main role="main" class="site-main">
+		<main role="main" class="site-main max-auto">
 			<div class="wrapper {{sidebar_class}}">
 				{% block content %}
 					Sorry, no content
@@ -30,11 +27,9 @@
 			{% endif %}
 		</main>
 
-		<footer class="site-footer">
+		<footer class="site-footer text-white bg-gray-800 pb-20">
 			{% block footer %}
-				<div class="wrapper">
-					{% include 'footer.twig' %}
-				</div>
+				{% include 'footer.twig' %}
 			{% endblock %}
 		</footer>
 		{{ function('wp_footer') }}
