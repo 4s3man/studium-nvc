@@ -28,7 +28,7 @@ register_sidebar(array(
     'name'          => __('Logistyka', C_TEXTDOMAIN),
     'id'            => 'logistic',
     'description'   => __('Wstaw treść w ten sposób <cos> Wstawiana treść </cos>', C_TEXTDOMAIN),
-    'before_widget' => '<div class="mx-auto container mb-10 jumbotron text-center">',
+    'before_widget' => '<div class="mx-auto container pt-0 jumbotron text-center">',
     'after_widget'  => '</div>',
     'before_title'  => '<h3 class="text-4xl">',
     'after_title'   => '</h3>'
