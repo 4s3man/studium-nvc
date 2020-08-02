@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="content-wrapper jumbotron flex">		
-		<article class="w-10/12 post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<article class="mx-auto container post-type-{{post.post_type}}" id="post-{{post.ID}}">
             {% if post.thumbnail %}
 			    <div class="relative bg-bottom bg-fixed bg-cover h-64" style="background-image: url({{ post.thumbnail.src('full') }})"></div>		
             {% endif %}

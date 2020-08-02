@@ -21,7 +21,9 @@ register_sidebar(array(
 register_sidebar(array(
     'id'            => 'harmonogram',
     'name'          => __('Harmonogram', C_TEXTDOMAIN),
-    'description'   => __('Widget z harmonogramem, C_TEXTDOMAIN')
+    'description'   => __('Widget z harmonogramem, C_TEXTDOMAIN'),
+    'before_widget' => '<div id="harmonogram">',
+    'after_widget'  => '</div>',
 ));
 
 register_sidebar(array(
