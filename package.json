@@ -19,7 +19,6 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.8.5",
-    "bootstrap": "^4.5.0",
     "cross-env": "^7.0.2",
     "laravel-mix": "^5.0.4",
     "resolve-url-loader": "^3.1.0",
