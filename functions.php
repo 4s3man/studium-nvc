@@ -26,6 +26,7 @@ class StarterSite extends TimberSite
 		add_action('init', array($this, 'register_menus'));
 		add_action('init', array($this, 'register_widgets'));
 		add_action('init', array($this, 'register_sidebars'));
+		add_action('init', array($this, 'register_shortcodes'));
 		parent::__construct();
 	}
 
@@ -61,6 +62,10 @@ class StarterSite extends TimberSite
 		require('lib/widgets.php');
 	}
 
+	function register_shortcodes()
+	{
+		require('lib/shortcodes.php');
+	}
 
 	// Access data site-wide.
 
