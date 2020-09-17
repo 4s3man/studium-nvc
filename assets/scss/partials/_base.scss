@@ -43,6 +43,11 @@ body {
 	@extend .main-bg;
 }
 
+hr {
+	border-top: 2px solid rgba($color: #000000, $alpha: 0.2);
+	margin: 2em;
+}
+
 // ---
 // Media
 // ---

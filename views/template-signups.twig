@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper jumbotron flex">		
+		<article class="mx-auto container post-type-{{post.post_type}}" id="post-{{post.ID}}">
+            <h1 class="text-4xl text-center">{{post.title}}</h1>
+			{% if post.thumbnail %}
+			    <div class="relative bg-bottom bg-fixed bg-cover h-64" style="background-image: url({{ post.thumbnail.src('full') }})"></div>		
+            {% endif %}			
+			{{ idea }}
+			<hr>
+			{{ logistic }}
+			<hr>
+			<section class="article-content">
+				<div class="article-body container mx-auto mb-20">
+					{{post.content|wpautop}}
+				</div>
+			</section>
+			<div>
+				<hr>
+				{{ singups|wpautop }}
+				{{ newsletter }}
+				{{ contact }}
+			</div>
+		</article>
+	</div>
+{% endblock %}

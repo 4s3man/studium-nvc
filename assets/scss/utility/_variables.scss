@@ -32,7 +32,7 @@ $screen-lg: 		60em;
 // Aw man, I love Kuler:
 // http://adobe.ly/1wwZ0Rk
 
-$dark-blue: 	#334D5C;
+$dark-blue: 	darkblue;
 $teal: 				#45B29D;
 $yellow: 			#EFC94C;
 $orange: 			#E27A3F;
@@ -64,7 +64,7 @@ $color-notice-danger:		 $red;
 $color-notice-warning:	 $orange;
 
 // Then element-based names are nice too
-$color-link: 		       $color-accent-med;
+$color-link: 		       $dark-blue;
 $color-link-hover: 		   $black;
 $color-link-active: 	   $black;
 

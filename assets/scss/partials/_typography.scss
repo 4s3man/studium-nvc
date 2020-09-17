@@ -2,32 +2,58 @@
 // Typography
 // ---
 
+.helvetica {
+    letter-spacing: 2px;
+    word-wrap: break-word;
+    color: #666666;
+}
+
 body {
 	font-family: $body-font;
 	line-height: $line-height-base;
 }
 
+.site-header{
+	a,
+	a:visited,
+	a:link,
+	h1,h2,h3,h4,h5,h6 {
+		color: $black;
+	}
+}
+
+.site-footer {
+	a,
+	a:visited,
+	a:link,
+	h1,h2,h3,h4,h5,h6 {
+		color: $white;
+	}
+}
+
 a,
 a:visited,
 a:link {
-	// color: $color-link;
+	color: $color-link;
 	text-decoration: none;
 }
 
 a {
 	&:hover, &:focus {
 		color: $color-link-hover;
+		text-decoration: underline;
 	}
 	&:active {
 		color: $color-link-active;
 	}
 }
 
-// h1, h2, h3, h4, h5, h6 {
-// 	line-height: $line-height-base;
-// 	font-family: $heading-font;
-// 	margin-bottom: 0;
-// }
+h1, h2, h3, h4, h5, h6 {
+	line-height: $line-height-base;
+	font-family: $heading-font;
+	margin-bottom: 0;
+	@include helvetica;
+}
 
 // h1 {
 // 	font-size: $size-h1;
@@ -59,11 +85,11 @@ a {
 // 	margin-top: $size-base;
 // }
 
-// p {
-// 	@include helvetica;
-// 	margin-top: $size-base;
-// 	font-size: $size-base;
-// }
+p {
+	@include helvetica;
+	margin-top: $size-base;
+	font-size: $size-base;
+}
 
 // small {
 // 	font-size: $size-sml;

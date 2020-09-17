@@ -22,3 +22,7 @@
 .btn-info {
 	@include button($color-notice-info, $color-text-dark);
 }
+
+.linkBtn a{
+	color: white;
+}
