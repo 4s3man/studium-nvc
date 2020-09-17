@@ -23,8 +23,8 @@
             {% endif %}
             
             <div class="flex flex-col md:flex-row justify-center text-center">
-                <span class="m-2 block sm:inline-block p-1 bg-green-200 shadow-xl rounded-md max font-semibold">{{ post.custom._EventStartDate|date('d-m-Y D') }}</span>
-                <span class="m-2 block sm:inline-block p-1 bg-green-300 shadow-xl rounded-md font-semibold">{{ post.custom._EventEndDate|date('d-m-Y D') }}</span>
+                <span class="m-2 block sm:inline-block p-1 bg-green-200 shadow-xl rounded-md max font-semibold">{{ post.custom._EventStartDate|date() }}</span>
+                <span class="m-2 block sm:inline-block p-1 bg-green-300 shadow-xl rounded-md font-semibold">{{ post.custom._EventEndDate|date() }}</span>
                 
                 {% set cost = function('tribe_get_cost', null, true) %}
                 {% if cost %}
