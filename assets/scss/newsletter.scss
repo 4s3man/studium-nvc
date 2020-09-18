@@ -13,6 +13,10 @@
     left: 0;
 }
 
+.sidebar-content label {
+    @include helvetica;
+}
+
 .sidebar-header {
     display: flex;
     justify-content: center;
