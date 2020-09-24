@@ -1,67 +1,51 @@
-{% extends "base.twig" %}
+{{ function('do_action', 'tribe_events_before_html') }}
 
-{% block content %}
-    {{ function('tribe_events_before_html') }}
+{{ function('do_action', 'tribe_the_notices') }}
+<div >  
+    <p class="tribe-events-back">
+        <a class="" href="{{ eventLink }}"> 
+            {{ eventLabel }}
+        </a>
+    </p>
+</div>
+<div class="content-wrapper jumbotron pt-1 flex justify-center">
 
-    {{ function('tribe_the_notices') }}
-	<div class="content-wrapper jumbotron flex">
-		
-		<aside class="w-1/12 md:p-3">
-            {% if post.prev %}        
-            <a class="shadow-lg rounded-lg bg-gray-200 w-full h-full flex flex-col text-left justify-center items-center" href="{{ post.prev.link }}">
-                <svg class="w-10 h-10 md:w-20 md:h-20" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                width="100" height="100"
-                viewBox="0 0 172 172"
-                style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#333333"><path d="M91.62136,22.87734c-1.48951,0.04438 -2.90324,0.6669 -3.94167,1.73568l-57.33333,57.33333c-2.23811,2.23904 -2.23811,5.86825 0,8.10729l57.33333,57.33333c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-53.27969,-53.27969l53.27969,-53.27969c1.69569,-1.64828 2.20555,-4.16851 1.28389,-6.3463c-0.92166,-2.17779 -3.08576,-3.56638 -5.44951,-3.49667zM131.75469,22.87734c-1.48951,0.04438 -2.90324,0.6669 -3.94167,1.73568l-57.33333,57.33333c-2.23811,2.23904 -2.23811,5.86825 0,8.10729l57.33333,57.33333c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-53.27969,-53.27969l53.27969,-53.27969c1.69569,-1.64828 2.20555,-4.16851 1.28389,-6.3463c-0.92166,-2.17779 -3.08576,-3.56638 -5.44951,-3.49667z"></path></g></g></svg>
-            </a>
-            {% endif %}
-        </aside>
-		
-		<article class="w-10/12 post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            {% if post.thumbnail %}
-			    <div class="relative bg-bottom bg-fixed bg-cover h-64" style="background-image: url({{ post.thumbnail.src('full') }})"></div>		
-            {% endif %}
+    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+        {% if post.thumbnail %}
+            <div class="relative bg-bottom bg-fixed bg-cover h-64" style="background-image: url({{ post.thumbnail.src('full') }})"></div>		
+        {% endif %}
+        
+        <div class="flex flex-col md:flex-row justify-center text-center">
+            <span class="m-2 block sm:inline-block p-1 bg-green-200 shadow-xl rounded-md max font-semibold">{{ post.custom._EventStartDate|date() }}</span>
+            <span class="m-2 block sm:inline-block p-1 bg-green-300 shadow-xl rounded-md font-semibold">{{ post.custom._EventEndDate|date() }}</span>
             
-            <div class="flex flex-col md:flex-row justify-center text-center">
-                <span class="m-2 block sm:inline-block p-1 bg-green-200 shadow-xl rounded-md max font-semibold">{{ post.custom._EventStartDate|date() }}</span>
-                <span class="m-2 block sm:inline-block p-1 bg-green-300 shadow-xl rounded-md font-semibold">{{ post.custom._EventEndDate|date() }}</span>
-                
-                {% set cost = function('tribe_get_cost', null, true) %}
-                {% if cost %}
-                    <span class="m-2 shadow-xl rounded-md font-semibold p-1 bg-green-400">{{ function('tribe_get_cost', null, true) }}</span>
-                {% endif %}
-
-                {% for tag in post.tags %}
-                    <span class="m-2 shadow-xl rounded-md font-semibold p-1 bg-teal-200">{{ tag }}</span>
-                {% endfor %}
-            </div>
-			
-            <h1 class="text-4xl text-center">{{post.title}}</h1>
-			<section class="article-content">
-				<div class="article-body container mx-auto mb-20">
-					{{post.content|wpautop}}
-                    <div class="mx-auto flex justify-center m-3">
-                        {{ function('do_action', 'studium_nvc_after_content_with_event', post) }}
-                    </div>
-
-                    {{ logistic }}
-				</div>        
-
-                {{ function('do_action', 'tribe_events_single_event_after_the_content') }}
-                {{ function('do_action', 'tribe_events_single_event_before_the_meta') }}
-                {{ function('tribe_get_template_part', 'modules/meta') }}
-                {{ function('do_action', 'tribe_events_single_event_after_the_meta') }}
-			</section>
-		</article>
-
-		<aside class="w-1/12 md:p-3">            
-            {% if post.next %}    
-            <a class="shadow-lg rounded-lg bg-gray-200 w-full h-full flex flex-col text-left justify-center items-center" href="{{ post.next.link }}">
-                <svg class="w-10 h-10 md:w-20 md:h-20" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#333333"><path d="M30.87938,10.25281c-2.795,0 -5.30781,1.70656 -6.35594,4.3c-1.06156,2.59344 -0.43,5.56312 1.57219,7.51156l63.93562,63.93562l-63.93562,63.93563c-1.80063,1.72 -2.52625,4.28656 -1.89469,6.70531c0.63156,2.40531 2.51281,4.28656 4.91813,4.91813c2.41875,0.63156 4.98531,-0.09406 6.70531,-1.89469l73.66437,-73.66438l-73.66437,-73.66437c-1.30344,-1.33031 -3.07719,-2.08281 -4.945,-2.08281zM75.61281,10.25281c-2.80844,0 -5.32125,1.70656 -6.36938,4.3c-1.06156,2.59344 -0.43,5.56312 1.57219,7.51156l63.93562,63.93562l-63.93562,63.93563c-1.80063,1.72 -2.52625,4.28656 -1.89469,6.70531c0.63156,2.40531 2.51281,4.28656 4.91813,4.91813c2.41875,0.63156 4.98531,-0.09406 6.70531,-1.89469l73.66437,-73.66438l-73.66437,-73.66437c-1.30344,-1.33031 -3.07719,-2.08281 -4.93156,-2.08281z"></path></g></g></svg>
-            </a>
+            {% set cost = function('tribe_get_cost', null, true) %}
+            {% if cost %}
+                <span class="m-2 shadow-xl rounded-md font-semibold p-1 bg-green-400">{{ function('tribe_get_cost', null, true) }}</span>
             {% endif %}
-        </aside>
 
-	</div>
-    {{ function('tribe_events_after_html') }}
-{% endblock %}
+            {% for tag in post.tags %}
+                <span class="m-2 shadow-xl rounded-md font-semibold p-1 bg-teal-200">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        
+        <h1 class="text-4xl text-center">{{post.title}}</h1>
+        <section class="article-content">
+            <div class="article-body container mx-auto mb-20">
+                {{post.content|wpautop}}
+                <div class="mx-auto flex justify-center m-3">
+                    {{ function('do_action', 'studium_nvc_after_content_with_event', post) }}
+                </div>
+
+                {{ logistic }}
+            </div>        
+
+            {{ function('do_action', 'tribe_events_single_event_after_the_content') }}
+            {{ function('do_action', 'tribe_events_single_event_before_the_meta') }}
+            {{ function('tribe_get_template_part', 'modules/meta') }}
+            {{ function('do_action', 'tribe_events_single_event_after_the_meta') }}
+        </section>
+    </article>
+
+</div>
+{{ function('do_action' ,'tribe_events_after_html') }}

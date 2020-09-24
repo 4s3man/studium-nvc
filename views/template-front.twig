@@ -7,9 +7,6 @@
 			{% if post.thumbnail %}
 			    <div class="relative bg-bottom bg-fixed bg-cover h-64" style="background-image: url({{ post.thumbnail.src('full') }})"></div>		
             {% endif %}			
-			{{ idea }}
-			<hr>
-			{{ logistic }}
 			<hr>
 			<section class="article-content">
 				<div class="article-body container mx-auto mb-20">
@@ -17,6 +14,7 @@
 				</div>
 			</section>
 			<div>
+				{{ logistic }}
 				<hr>
 				{{ singups|wpautop }}
 				{{ newsletter }}
